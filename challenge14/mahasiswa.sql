@@ -7,6 +7,7 @@ primary key (id_dosen));
 INSERT INTO dosen VALUES('D001','Mei Lestari, M.Kom.');
 INSERT INTO dosen VALUES('D002','DRA. ZEINYTA AZRA HAROEN, MM');
 INSERT INTO dosen VALUES('D003','DR. SOEPARLAN KASYADI, MM');
+INSERT INTO dosen VALUES('D004','Birul Walidain, M.KOM.');
 CREATE TABLE jurusan(
 id_jurusan varchar(5) not null,
 nama_jurusan varchar(30) not null,
@@ -42,13 +43,11 @@ primary key(nim,id_dosen,id_matkul),
 foreign key(nim) references mahasiswa(nim),
 foreign key(id_dosen) references dosen(id_dosen),
 foreign key(id_matkul) references mata_kuliah(id_matkul));
-INSERT INTO kontrak VALUES('201943500001','D002','M001','C');
-INSERT INTO kontrak VALUES('201943500002','D002','M001','B');
-INSERT INTO kontrak VALUES('201943500003','D001','M002','A');
-INSERT INTO kontrak VALUES('201943500001','D001','M002','A');
+INSERT INTO kontrak VALUES('201943500001','D001','M001','C');
+INSERT INTO kontrak VALUES('201943500002','D001','M001','B');
+INSERT INTO kontrak VALUES('201943500001','D002','M002','A');
 INSERT INTO kontrak VALUES('201943500001','D003','M003','B');
-INSERT INTO kontrak VALUES('201943500001','D003','M004','A');
-INSERT INTO kontrak VALUES('201943500001','D001','M004','E');
-INSERT INTO kontrak VALUES('201943500002','D001','M004','D');
-INSERT INTO kontrak VALUES('201943500003','D001','M004','E');
+INSERT INTO kontrak VALUES('201943500001','D004','M004','E');
+INSERT INTO kontrak VALUES('201943500003','D004','M004','E');
+INSERT INTO kontrak VALUES('201943500002','D004','M004','D');
 COMMIT;

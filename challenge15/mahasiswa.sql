@@ -16,7 +16,7 @@ SELECT nama_mhs, sum(sks) as jumlah FROM mahasiswa,kontrak,mata_kuliah WHERE mah
 SELECT nama_mhs,nama_matkul FROM mahasiswa, kontrak, mata_kuliah WHERE mahasiswa.nim = kontrak.nim AND kontrak.id_matkul = mata_kuliah.id_matkul AND nama_matkul = 'Data mining';
 
 /* 6. tampilkan jumlah mahasiswa untuk setiap dosen*/ 
-SELECT nama_dosen, COUNT(DISTINCT(nama_mhs)) FROM  mahasiswa left join dosen, kontrak WHERE dosen.id_dosen = kontrak.id_dosen AND mahasiswa.nim = kontrak.nim group by nama_dosen;
+SELECT nama_dosen, COUNT(DISTINCT(nama_mhs)) FROM  mahasiswa, dosen, kontrak WHERE  dosen.id_dosen = kontrak.id_dosen AND mahasiswa.nim = kontrak.nim group by nama_dosen;
 
 /* 7. urutkan mahasiswa berdasarkan umurnya*/ 
 SELECT nama_mhs, umur FROM mahasiswa ORDER BY umur;

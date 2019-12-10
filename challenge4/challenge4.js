@@ -3,6 +3,7 @@ function indexPrime(param){
     var i =2;
     //iterasi panjang bilangan prima
     for(bilPrima.length=0; bilPrima.length< param; i++){
+        // console.log(bilPrima.push(i));
         var isPrime = true; 
         for(var j=0; j<=bilPrima.length; j++){
             //mengecek apakah bilangan prima
@@ -20,5 +21,5 @@ function indexPrime(param){
 return bilPrima.pop();
 }
 console.log(indexPrime(4));
-console.log(indexPrime(500));
-console.log(indexPrime(37786));
+// console.log(indexPrime(500));
+// console.log(indexPrime(37786));

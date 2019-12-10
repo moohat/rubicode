@@ -10,13 +10,13 @@ SELECT nama_mhs, nilai FROM mahasiswa, kontrak WHERE mahasiswa.nim = kontrak.nim
 SELECT nama_mhs, nilai FROM mahasiswa, kontrak WHERE mahasiswa.nim = kontrak.nim AND Nilai <= 'B' GROUP BY nama_mhs;
 
 /* 4. tampilkan mahasiswa yang memiliki jumlah SKS lebih dari 10*/ 
-SELECT nama_mhs, sum(sks) as jumlah FROM mahasiswa,kontrak,mata_kuliah WHERE mahasiswa.nim=kontrak.nim AND kontrak.id_matkul=mata_kuliah.id_matkul GROUP BY nama_mhs HAVING jumlah  > 10
+SELECT nama_mhs, sum(sks) AS jumlah FROM mahasiswa,kontrak,mata_kuliah WHERE mahasiswa.nim=kontrak.nim AND kontrak.id_matkul=mata_kuliah.id_matkul GROUP BY nama_mhs HAVING jumlah  > 10
 
 /* 5. tampilkan mahasiswa yang mengontrak mata kuliah 'Data mining'*/ 
 SELECT nama_mhs,nama_matkul FROM mahasiswa, kontrak, mata_kuliah WHERE mahasiswa.nim = kontrak.nim AND kontrak.id_matkul = mata_kuliah.id_matkul AND nama_matkul = 'Data mining';
 
 /* 6. tampilkan jumlah mahasiswa untuk setiap dosen*/ 
-SELECT nama_dosen, COUNT(DISTINCT(nama_mhs)) FROM  mahasiswa, dosen, kontrak WHERE  dosen.id_dosen = kontrak.id_dosen AND mahasiswa.nim = kontrak.nim group by nama_dosen;
+SELECT nama_dosen, COUNT(DISTINCT(nama_mhs)) FROM  mahasiswa, dosen, kontrak WHERE  dosen.id_dosen = kontrak.id_dosen AND mahasiswa.nim = kontrak.nim GROUP BY nama_dosen;
 
 /* 7. urutkan mahasiswa berdasarkan umurnya*/ 
 SELECT nama_mhs, umur FROM mahasiswa ORDER BY umur;

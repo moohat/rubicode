@@ -25,10 +25,10 @@ function KonversiRomawi(n){
 console.log("Script Testing untuk Konversi Romawi\n");
 console.log("input | expected | result");
 console.log("______|__________|_______");
-console.log("4     | IV       | ",KonversiRomawi(4));
-console.log("9     | IX       | ",KonversiRomawi(9));
-console.log("13    | XIII     | ",KonversiRomawi(13));
-console.log("1453  | MCDLIII  | ",KonversiRomawi(1453));
+// console.log("4     | IV       | ",KonversiRomawi(4));
+// console.log("9     | IX       | ",KonversiRomawi(9));
+// console.log("13    | XIII     | ",KonversiRomawi(13));
+// console.log("1453  | MCDLIII  | ",KonversiRomawi(1453));
 console.log("1646  | MDCXLVI  | ",KonversiRomawi(1646));
 
 

@@ -133,6 +133,38 @@ function list() {
 
     }
 }
+
+//check task to uncomplete
+function uncomplete(task) {
+    //get data
+    var data = getData();
+    //modify the data 
+    data[task].completed = false;
+    //set data
+    setData(data);
+    console.log(`"${data[task].task}" status selesai dibatalkan`);
+
+}
+//list all tasks
+function task(task) {
+        //data
+    var data = getData();
+    // console.log(data[task].task);
+    
+    if (data[task]) {
+        //print the list
+        
+            console.log(task  +1+ ".", " [" + (data[task].completed ? "x" : " ") + "] ", data[task].task);
+            
+       
+    } else {
+        console.log('Tidak ada Pekerjaan');
+        // console.log(data[task]);
+
+
+    }
+   1
+}
 /* 
 //list all unclompleted tasks
 function uncompleteList() {
@@ -246,11 +278,17 @@ function filterTask() {
 
 var command = process.argv[2];
 var argument = process.argv.splice(3).join(' ');
+// console.log(argument);
+
 
 // init();
 switch (command) {
     case undefined:
         init();
+        break;
+        case "task":
+        task(argument-1);
+        rl.close();
         break;
     case "add":
         add(argument);

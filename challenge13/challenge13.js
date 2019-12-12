@@ -133,7 +133,7 @@ function list() {
 
     }
 }
-
+/* 
 //list all unclompleted tasks
 function uncompleteList() {
     //data
@@ -160,7 +160,7 @@ function completedList() {
     });
 
 }
-
+ */
 function completedAsc() {
     var data = getData();
     console.log('Daftar Pekerjaan');
@@ -200,10 +200,6 @@ function outstandingDesc() {
         }
     }
 }
-
-
-
-
 
 function tag (){
     var index = argument.slice(0,1)-1;

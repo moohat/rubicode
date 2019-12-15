@@ -2,7 +2,7 @@
 if (!process.argv[2]) {
     console.log(`Tolong Sertakan nama file sebagai inputan soalnya\n Misalnya 'node solution.js data.json`);
     //keluar program
-    process.exit();
+    process.exit(1);
 
 }
 
@@ -21,7 +21,7 @@ var rl = readlline.createInterface({
 });
 
 
-console.log(process.argv[2]);
+// console.log(process.argv[2]);
 
 
 console.log(`Selamat datang di permainan Tebak-tebakan, kamu akan diberikan pertanyaan dari file ini ${FILE_NAME}. untuk bermain, jawablah dengan jawaban yang sesuai.\n Gunakan 'skip' untuk menangguhkan pertanyaannya, dan di akhir pertanyaan akan ditanyakan lagi. `);

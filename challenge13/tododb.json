@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "task": "makan bareng temen",
+    "completed": true,
+    "tag": [
+      "ayam",
+      "burung",
+      "bubur",
+      "roti",
+      "keju"
+    ]
+  },
+  {
+    "task": "pergi ke pasar bareng ibu",
+    "completed": false,
+    "tag": [
+      "ayam",
+      "bubur"
+    ]
+  }
+]

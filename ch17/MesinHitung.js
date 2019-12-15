@@ -15,7 +15,7 @@ export class MesinHitung{
         this.x += x;
         return this;
     }
-
+    
     subtract(x){
         this.x -= x;
         return this;

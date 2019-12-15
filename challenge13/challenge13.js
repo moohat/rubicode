@@ -95,9 +95,6 @@ function complete(task) {
     //modify the data
     data[task].completed = true;
 
-    //set data complete false
-    // = !data[task].completed;
-
     //set data
     setData(data);
     console.log(`"${data[task].task}" telah selesai`);
@@ -132,6 +129,40 @@ function list() {
         console.log('Tidak ada Pekerjaan');
 
     }
+}
+
+//check task to uncomplete
+function uncomplete(task) {
+    //get data
+    var data = getData();
+    //modify the data 
+    data[task].completed = false;
+    //set data
+    setData(data);
+    console.log(`"${data[task].task}" status selesai dibatalkan`);
+
+}
+//list all tasks
+function task(task) {
+    console.log(task);
+    
+        //data
+    var data = getData();
+    // console.log(data[task].task);
+    
+    if (data[task]) {
+        //print the list
+        
+            console.log(task  +1+ ".", " [" + (data[task].completed ? "x" : " ") + "] ", data[task].task);
+            
+       
+    } else {
+        console.log('Tidak ada Pekerjaan');
+        // console.log(data[task]);
+
+
+    }
+   1
 }
 /* 
 //list all unclompleted tasks
@@ -213,11 +244,12 @@ function tag (){
         var input = [];
         for (let i = 0; i < toTag.length; i++) {
             if (!data[index].tag.includes(toTag[i])) {
+                //* input tag ke tododb.json
                 data[index].tag.push(toTag[i]);
-                console.log(data[index]);
-                
+                // console.log(data[index]);
+                //* push data tag ke array dan di tampilkan di command
                 input.push(toTag[i]);
-                console.log(input);                
+                // console.log(input);                
             }
         }
         setData(data);
@@ -225,9 +257,7 @@ function tag (){
             console.log('tidak ada yang diinput');            
         } else{
             // console.log('sudah diinput');
-            console.log(`'${input.join()}' telah ditambahkan ke dalam '${data[index].task}'.`);
-
-            
+            console.log(`'${input.join()}' telah ditambahkan ke dalam '${data[index].task}'.`);            
         }
 }
 
@@ -246,11 +276,19 @@ function filterTask() {
 
 var command = process.argv[2];
 var argument = process.argv.splice(3).join(' ');
+// console.log(argument);
+
 
 // init();
 switch (command) {
     case undefined:
         init();
+        break;
+        case "task":
+        task(argument-1);
+        // console.log(argument-1);
+        
+        rl.close();
         break;
     case "add":
         add(argument);

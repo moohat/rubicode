@@ -28,7 +28,8 @@ CREATE TABLE mahasiswa(
 nim varchar(15)not null,
 nama_mhs varchar(30) not null,
 alamat varchar(50)not null,
-id_jurusan varchar(5) not null, umur int(3),
+id_jurusan varchar(5) not null,
+umur int(3),
 primary key(nim),
 foreign key(id_jurusan) references jurusan(id_jurusan));
 INSERT INTO mahasiswa VALUES('201943500001','Faisal Assegaf','Bogor','J001',22);

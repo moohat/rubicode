@@ -142,9 +142,9 @@ function uncomplete(task) {
     console.log(`"${data[task].task}" status selesai dibatalkan`);
 
 }
-//list all tasks
+//list task data
 function task(task) {
-    console.log(task);
+    // console.log(task);
     
         //data
     var data = getData();
@@ -153,16 +153,12 @@ function task(task) {
     if (data[task]) {
         //print the list
         
-            console.log(task  +1+ ".", " [" + (data[task].completed ? "x" : " ") + "] ", data[task].task);
-            
+            console.log(task  +1+ ".", " [" + (data[task].completed ? "x" : " ") + "] ", data[task].task);            
        
     } else {
         console.log('Tidak ada Pekerjaan');
         // console.log(data[task]);
-
-
-    }
-   1
+    }   
 }
 /* 
 //list all unclompleted tasks

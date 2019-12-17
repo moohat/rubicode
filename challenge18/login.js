@@ -7,40 +7,44 @@ var rl = readlline.createInterface({
     output: process.stdout
 });
 
-rl.question('username: ', (username) => {
-    rl.question('password: ', (password) => {
-        db.serialize(() => {
-            const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
-            var x;
-            db.all(sql, [username, password], function (err, data) {
-                if(err){
-                    next(err);
-                    return;
-                }
-                if(!data){
-                    console.log(400);
-                    console.log('invalide username or password');                   
-                    
-                }
-                data.forEach((row) =>{
-                    if (row.username == username && row.password == password) {
-                        x = 1;    
+/**
+ * TODO: LOGIN USER
+ */
+function login() {
+    console.log('===========================================================');
+    console.log(`Welcome to Program Keren`);
+    console.log('===========================================================');
+    rl.question('username: ', (username) => {
+        rl.question('password: ', (password) => {
+            db.serialize(() => {
+                const sql = `SELECT * FROM users WHERE username = ? AND password = ?`;
+                var x;
+                db.all(sql, [username, password], function (err, data) {                                     
+                    if (err) throw err;                    
+                    data.forEach((row) => {
+                        if (row.username == username && row.password == password) {
+                            // console.log(`ini adalah ${row.hak_akses}`);
+                            console.log(`Welcome, ${username} Your access level is:  ${row.hak_akses.toUpperCase()}`);                            
+                            x = 1;
+                        }
+                        else {
+                            x = 2;
+                        }
+                    });
+                    if (x === 1) {                      
+                        
+                        mainMenu();
                     }
-                    else{
-                        x = 2;
+                    else {
+                        console.log('invalid username or password');
+                        login();                        
                     }
                 });
-                if(x === 1){
-                    console.log('login berhasil');  
-                    console.log(`username : ${username} password: ${password} TERSEDIA`);                  
-                }
-                else{
-                    console.log('invalid username or password');                    
-                    // console.log(`username : ${username} password: ${password} TIDAK TERSEDIA`);
-                }
             });
-        })
-        // console.log(`username : ${username} password: ${password}` );
+           
+        });
+    });
+}
+// mainMenu();
 
-    })
-});
+login();

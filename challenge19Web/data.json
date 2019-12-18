@@ -10,5 +10,19 @@
       "integer": "88",
       "float": "98.3",
       "date": "2019-12-16"
+   },
+   {
+      "string": "input string",
+      "integer": "88888",
+      "float": "9,9",
+      "date": "2019-12-18",
+      "boolean": "true"
+   },
+   {
+      "string": "input string ke empat",
+      "integer": "98432",
+      "float": "9,99",
+      "date": "2019-12-18",
+      "boolean": "false"
    }
 ]

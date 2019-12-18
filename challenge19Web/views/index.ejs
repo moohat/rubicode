@@ -20,8 +20,8 @@
       <br />
       <form action="" method="POST">
         <!--       String        -->
-        <div class="form-group row">
-          <label for="string" class="col-sm-1 col-form-label">String</label>
+        <div class="form-group row">         
+          <label for="string" class="col-sm-2 col-form-label"><input type="checkbox">String</label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -34,7 +34,7 @@
         </div>
         <!--       Integer        -->
         <div class="form-group row">
-          <label for="integer" class="col-sm-1 col-form-label">Integer</label>
+          <label for="integer" class="col-sm-2 col-form-label"><input type="checkbox">Integer</label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -47,7 +47,7 @@
         </div>
         <!--       Float        -->
         <div class="form-group row">
-          <label for="float" class="col-sm-1 col-form-label">Float</label>
+          <label for="float" class="col-sm-2 col-form-label"><input type="checkbox">Float</label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -60,7 +60,7 @@
         </div>
         <!--       Date        -->
         <div class="form-group row">
-          <label for="date" class="col-sm-1 col-form-label">Date</label>
+          <label for="date" class="col-sm-2 col-form-label"><input type="checkbox">Date</label>
           <div class="col-sm-6">
             <input
               type="text"
@@ -74,7 +74,7 @@
 
         <!--       Boolean        -->
         <div class="form-group row">
-          <label for="boolean" class="col-sm-1 col-form-label">Boolean</label>
+          <label for="boolean" class="col-sm-2 col-form-label"><input type="checkbox">Boolean</label>
           <div class="col-sm-6">
             <select class="custom-select d-block w-100" id="country">
               >
@@ -106,7 +106,15 @@
           <% data.forEach((result, index) => { %>
           <tr>
             <td> <%= index+1 %> </td>
-            <td> <%= result.string%> </td>
+            <td> <%= result.string %> </td>
+            <td> <%= result.integer %> </td>
+            <td> <%= result.float %> </td>
+            <td> <%= result.date %> </td>
+            <td> <%= result.boolean %> </td>
+            <td>
+    <a class="btn btn-success edit" href="../edit/<%=data[i]%>">Edit</a>                       
+    <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="/delete/<%=data[i].id%>">Delete</a>                       
+   </td>
             </tr>
             
           <% }) %>

@@ -1,0 +1,14 @@
+[
+   {
+      "string": "string",
+      "integer": "4",
+      "float": "4.2",
+      "date": "2012 - 4 -19"
+   },
+   {
+      "string": "string data",
+      "integer": "88",
+      "float": "98.3",
+      "date": "2019-12-16"
+   }
+]

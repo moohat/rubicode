@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>BREAD (Browse, Read, Edit, Add, Delete)</h1>
+      <h2>Filters</h2>
+      <br />
+      <form action="" method="POST">
+        <!--       String        -->
+        <div class="form-group row">
+          <label for="string" class="col-sm-1 col-form-label">String</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="string"
+              placeholder="String"
+              name="string"
+            />
+          </div>
+        </div>
+        <!--       Integer        -->
+        <div class="form-group row">
+          <label for="integer" class="col-sm-1 col-form-label">Integer</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="integer"
+              placeholder="Integer"
+              name="integer"
+            />
+          </div>
+        </div>
+        <!--       Float        -->
+        <div class="form-group row">
+          <label for="float" class="col-sm-1 col-form-label">Float</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="float"
+              placeholder="Float"
+              name="float"
+            />
+          </div>
+        </div>
+        <!--       Date        -->
+        <div class="form-group row">
+          <label for="date" class="col-sm-1 col-form-label">Date</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="date"
+              placeholder="Date"
+              name="date"
+            />
+          </div>
+        </div>
+
+        <!--       Boolean        -->
+        <div class="form-group row">
+          <label for="boolean" class="col-sm-1 col-form-label">Boolean</label>
+          <div class="col-sm-6">
+            <select class="custom-select d-block w-100" id="country">
+              >
+              <option value="">Choose...</option>
+              <option>True</option>
+              <option>False</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">String</th>
+              <th scope="col">Integer</th>
+              <th scope="col">Float</th>
+              <th scope="col">Date</th>
+              <th scope="col">Boolean</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          <% data.forEach((result, index) => { %>
+          <tr>
+            <td> <%= index+1 %> </td>
+            <td> <%= result.string%> </td>
+            </tr>
+            
+          <% }) %>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+        <div class="form-group row">
+          <a href="add"
+            ><button type="button" class="btn btn-primary">Add</button></a
+          >
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

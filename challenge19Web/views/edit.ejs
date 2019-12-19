@@ -1,71 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Edit</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <div class="container">
-    <h2>Edit Data</h2>
-    <br />
-    <form action="/edit" method="POST">
-         <!--       String        -->
-         <div class="form-group row">
-            <label for="id" class="col-sm-1 col-form-label">ID</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="ID" name="string" readonly>
-            </div>
+      <h2>Edit Data</h2>
+      <br />
+      <form action="" method="POST">
+        <!--       String        -->
+        <div class="form-group row">
+          <label for="id" class="col-sm-1 col-form-label">ID</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              name="id"
+              value="<%=Number(id)+1 %>"
+              readonly
+            />
           </div>
+        </div>
         <!--       String        -->
         <div class="form-group row">
           <label for="string" class="col-sm-1 col-form-label">String</label>
           <div class="col-sm-6">
-              <input type="text" class="form-control" id="string" placeholder="String" name="string">
+            <input
+              type="text"
+              class="form-control"
+              id="string"
+              value="<%=result.string %>"
+              name="string"
+            />
           </div>
         </div>
         <!--       Integer        -->
         <div class="form-group row">
-            <label for="integer" class="col-sm-1 col-form-label">Integer</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="integer" placeholder="Integer" name="integer">
-            </div>
+          <label for="integer" class="col-sm-1 col-form-label">Integer</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="integer"
+              name="integer"
+              value="<%=result.integer %>"
+            />
+          </div>
         </div>
-          <!--       Float        -->
-          <div class="form-group row">
-            <label for="float" class="col-sm-1 col-form-label">Float</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="float" placeholder="Float" name="float">
-            </div>
+        <!--       Float        -->
+        <div class="form-group row">
+          <label for="float" class="col-sm-1 col-form-label">Float</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="float"
+              name="float"
+              value="<%=result.float %>"
+            />
+          </div>
         </div>
         <!--       Date        -->
         <div class="form-group row">
-            <label for="date" class="col-sm-1 col-form-label">Date</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" id="date" placeholder="Date" name="date">
-            </div>
+          <label for="date" class="col-sm-1 col-form-label">Date</label>
+          <div class="col-sm-6">
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              value="<%=result.date %>"
+            />
+          </div>
         </div>
 
         <!--       Boolean        -->
         <div class="form-group row">
-            <label for="boolean" class="col-sm-1 col-form-label">Boolean</label>
-            <div class="col-sm-6">
-                <select class="custom-select d-block w-100" id="country" required="">
-                    <option value="">Choose...</option>
-                    <option>True</option>
-                    <option>False</option>
-                  </select>
-            </div>
-        </div>       
-        
-        <div class="form-group row">            
-            <button type="submit" class="btn btn-primary">Update</button>
-        </div>     
-        
+          <label for="boolean" class="col-sm-1 col-form-label">Boolean</label>
+          <div class="col-sm-6">
+            <select class="form-control" name="boolean">
+                <%if(result.boolean == "true") { %>
+                    <option>true</option>
+                    <option>false</option>
+                   <%} else { %>
+                    <option>false</option>
+                    <option>true</option>   
+                   <%} %>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
       </form>
     </div>
-
-</body>
+  </body>
 </html>

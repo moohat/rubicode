@@ -42,8 +42,33 @@ app.post('/add', (req, res) =>{
 
 
 
-app.get('/edit', (req, res) =>{
-    res.render('edit')
+
+app.get('/edit/:id', (req, res) =>{
+    const id = req.params.id;
+    res.render('edit', {result: {...data[id]}, id });
+});
+app.post('/edit/:id', (req, res) =>{
+    const id = req.params.id;
+    const edited = {
+        string: req.body.string,
+        integer: req.body.integer,
+        float: req.body.float,
+        date: req.body.date,
+        boolean: req.body.boolean,
+    };
+    data.splice(id, 1, edited);
+    writeData(data);
+        res.redirect('/');
+});
+
+//hapus data
+app.get('/delete/:id', (req,res) =>{
+const id = req.params.id;
+    //method splice, 
+    //potong berdasarkan id, sebanyak 1
+    data.splice(id, 1);
+    writeData(data);
+    res.redirect('/')
 });
 
 app.listen(3000, () => {

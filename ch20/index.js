@@ -129,9 +129,9 @@ app.get('/', (req, res) => {
 
     //FILTER
 
-    let arrKondisi = [parseInt(req.query.valueID), req.query.valueString, parseInt(req.query.valueInt), parseFloat(req.query.valueFloat), req.query.valueBool];
-    let arrIsChecked = [req.query.isID, req.query.isString, req.query.isInt, req.query.isFloat, req.query.isBool];
-    let arrField = ["id = ?","instr(data_string,?)","data_integer = ?","data_float = ?","data_boolean = ?","data_date =?"];
+    let arrKondisi = [parseInt(req.query.valueID), req.query.valueString, parseInt(req.query.valueInt), parseFloat(req.query.valueFloat), req.query.valueBoolean];
+    let arrIsChecked = [req.query.isID, req.query.isString, req.query.isInt, req.query.isFloat, req.query.isBoolean];
+    let arrField = ["id = ?","instr(data_string,?)","data_integer = ?","data_float = ?","data_boolean = ?","data_date"];
 
     let activeFilter = [];
     let activeIndex = [];

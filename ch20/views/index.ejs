@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>BREAD (Browse, Read, Edit, Add, Delete)</h1>
+      <h2>Filters</h2>
+      <br />
+      <form action="" method="POST">
+        <!--       String        -->
+        <div class="form-group row">         
+          <label for="string" class="col-sm-2 col-form-label"><input type="checkbox">String</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="string"
+              placeholder="String"
+              name="string"
+            />
+          </div>
+        </div>
+        <!--       Integer        -->
+        <div class="form-group row">
+          <label for="integer" class="col-sm-2 col-form-label"><input type="checkbox">Integer</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="integer"
+              placeholder="Integer"
+              name="integer"
+            />
+          </div>
+        </div>
+        <!--       Float        -->
+        <div class="form-group row">
+          <label for="float" class="col-sm-2 col-form-label"><input type="checkbox">Float</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="float"
+              placeholder="Float"
+              name="float"
+            />
+          </div>
+        </div>
+        <!--       Date        -->
+        <div class="form-group row">
+          <label for="date" class="col-sm-2 col-form-label"><input type="checkbox">Date</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="date"
+              placeholder="Date"
+              name="date"
+            />
+          </div>
+        </div>
+
+        <!--       Boolean        -->
+        <div class="form-group row">
+          <label for="boolean" class="col-sm-2 col-form-label"><input type="checkbox">Boolean</label>
+          <div class="col-sm-6">
+            <select id="boolean" class="form-control" value="Choose the boolean ....">
+              <option>true</option>
+              <option>false</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">String</th>
+              <th scope="col">Integer</th>
+              <th scope="col">Float</th>
+              <th scope="col">Date</th>
+              <th scope="col">Boolean</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+                          <%# laporan = elemen, index = index  %>
+            <% let num = 1; %>
+          <% for(const laporan of model) { %>
+          <tr>
+            <td> <%= laporan.id %> </td>
+            <td> <%= laporan.data_string %> </td>
+            <td> <%= laporan.data_integer %> </td>
+            <td> <%= laporan.data_float %> </td>
+            <td> <%= laporan.data_date %> </td>
+            <td> <%= laporan.data_boolean %> </td>
+            <td>              
+    <a class="btn btn-success edit" href="edit/<%= laporan.id %>">Edit</a>                       
+    <a class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete this item?');" href="delete/<%= laporan.id %>">Delete</a>                       
+   </td>
+  
+            </tr>
+            
+          <% } %>
+          </tbody>
+        </table>
+        
+         <!--PAGINATION-->
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item <%= (current == 1) ? 'disabled' : '' %>">
+          <a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current-1)) : '?page=' + Number(current-1) %>">Previous</a>
+        </li>
+        <% for(let i = (current == 1) ? current : current - 1; i <= pages && i <= current + 5; i++){ %>
+        <li class="page-item <%= (i == current) ? 'active' : '' %>"><a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + i) : '?page=' + i %>"><%=i%></a></li>
+        <% } %>
+        <li class="page-item <%= (current == pages) ? 'disabled' : '' %> ">
+          <a class="page-link" href="<%=  (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current + 1)) : '?page=' + Number(current + 1)%>">Next</a>
+        </li>
+      </ul>
+    </nav>
+        <div class="form-group row">
+          <a href="add"
+            ><button type="button" class="btn btn-primary">Add</button></a
+          >
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Edit</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Edit Data</h2>
+      <br />
+      <form action="" method="POST">
+        <!--       String        -->
+        <div class="form-group row">
+          <label for="id" class="col-sm-1 col-form-label">ID</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="id"
+              name="id"
+              value="<%= model.id %>"
+              readonly
+            />
+          </div>
+        </div>
+        <!--       String        -->
+        <div class="form-group row">
+          <label for="string" class="col-sm-1 col-form-label">String</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="string"
+              value="<%=model.data_string %>"
+              name="string"
+            />
+          </div>
+        </div>
+        <!--       Integer        -->
+        <div class="form-group row">
+          <label for="integer" class="col-sm-1 col-form-label">Integer</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="integer"
+              name="integer"
+              value="<%=model.data_integer %>"
+            />
+          </div>
+        </div>
+        <!--       Float        -->
+        <div class="form-group row">
+          <label for="float" class="col-sm-1 col-form-label">Float</label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              id="float"
+              name="float"
+              value="<%=model.data_float %>"
+            />
+          </div>
+        </div>
+        <!--       Date        -->
+        <div class="form-group row">
+          <label for="date" class="col-sm-1 col-form-label">Date</label>
+          <div class="col-sm-6">
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              name="date"
+              value="<%=model.data_date %>"
+            />
+          </div>
+        </div>
+
+        <!--       Boolean        -->
+        <div class="form-group row">
+          <label for="boolean" class="col-sm-1 col-form-label">Boolean</label>
+          <div class="col-sm-6">
+            <select class="form-control" name="boolean">
+                <%if(model.data_boolean == "true") { %>
+                    <option>true</option>
+                    <option>false</option>
+                   <%} else { %>
+                    <option>false</option>
+                    <option>true</option>   
+                   <%} %>
+          </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <button type="submit" class="btn btn-default btn-success">Update</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

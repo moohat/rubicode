@@ -21,102 +21,69 @@
       <form action="" method="GET">
         <!--       ID        -->
         <div class="form-group row">
-          <label for="id" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="hidden" name="page" value="1">
-              <input type="checkbox" class="form-check-input" name="isID" <%= (query.isID) == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                ID
-              </label>
-            </div>
-          </label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" placeholder="ID" name="valueID" value="<%= query.valueID %>"`>
-        </div>
+          <label for="id" class="col-sm-2 col-form-label"><input type="checkbox" name="check_id"
+                      <%= query.check_id ? ' checked ' : '' %>> ID</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="id" placeholder="ID" name="id">
+          </div>
       </div>
         <!--       String        -->
         <div class="form-group row">
-          <label for="String" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isString" <%= (query.isString) == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                String
-              </label>
-            </div>
-          </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="String" name="valueString" value="<%= query.valueString %>">
-        </div>
+          <label for="string" class="col-sm-2 col-form-label"><input type="checkbox" name="check_string"
+                      <%= query.check_string ? ' checked ' : '' %>> String</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="string" placeholder="string" name="string">
+          </div>
       </div>
         <!--       Integer        -->
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isInt" <%= query.isInt == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                Integer
-              </label>
-            </div>
-          </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="Integer" name="valueInt" value="<%= query.valueInt %>">
-        </div>
-      </div>    
+          <label for="integer" class="col-sm-2 col-form-label"><input type="checkbox" name="check_integer"
+                      <%= query.check_integer ? ' checked ' : '' %>> Integer</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="integer" placeholder="integer" name="integer">
+          </div>
+      </div>  
         <!--       Float        -->
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="checkbox" step="0.01" class="form-check-input" name="isFloat" <%= query.isFloat == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                Float
-              </label>
-            </div>
-          </label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="Float" name="valueFloat" value="<%= query.valueFloat %>">
-        </div>
+          <label for="float" class="col-sm-2 col-form-label"><input type="checkbox" name="check_float"
+                      <%= query.check_float ? ' checked ' : '' %>> Float</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="float" placeholder="float" name="float">
+          </div>
       </div>
         <!--       Date        -->
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isDate" <%= query.isDate == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                Date
-              </label>
-            </div>
-          </label>
-              <div class="col-sm-4">
-                <input type="date" class="form-control" placeholder="Start date" name="start" value="<%= query.start %>">
-              </div>
-      </div>
+          <label for="startDate" class="col-2 col-form-label"><input type="checkbox" name="check_date"
+                      <%= query.check_date ? ' checked ' : '' %>> Date</label>
+          <div class="col-2">
+              <input class="form-control" type="date" value="startDate" id="startDate" name="startDate">
+          </div>
+          <div class="col-8"></div>
+          <div class="col-2"></div>
 
-      <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-          </label>
-              <div class="col-sm-4">
-                <p>to</p>
-                <input type="date" class="form-control" placeholder="End date" name="end" value="<%= query.valueID %>">
-              </div>
+          <div class="col-2">
+              to
+          </div>
+          <div class="col-8"></div>
+          <div class="col-2"></div>
+
+          <div class="col-2">
+              <input class="form-control" type="date" value="endDate" id="endDate" name="endDate">
+          </div>
+          <div class="col-8"></div>
       </div>
 
         <!--       Boolean        -->
         <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">
-          <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isBoolean"  <%= query.isBoolean == 'on' ? "checked" : "" %>/>
-              <label class="form-check-label" for="defaultCheck1">
-                Boolean
-              </label>
-            </div>
-          </label>
-              <div class="col-sm-10">
-                  <select class="form-control" name="valueBoolean" id="bool">
-                      <option disabled>choose the boolean</option>
-                      <option <%= query.bool ? selected : "" %>>true</option>
-                      <option <%= query.bool ? selected : "" %>>false</option>
-                  </select>
-              </div>
+          <label for="boolean" class="col-2 col-form-label"><input type="checkbox" name="check_boolean"
+                      <%= query.check_boolean ? ' checked' : '' %>> Boolean</label>
+          <div class="col-10">
+              <select id="boolean" class="form-control" name="boolean">
+                  <option disabled selected>Choose the boolean...</option>
+                  <option value="true" <%= query.check_boolean == "true" ? ' selected' : ''; %></option>true</option>
+                  <option value="false" <%= query.check_boolean == "false" ? ' selected' : ''; %></option>false</option>
+              </select>
+          </div>
       </div>
       <div class="form-group row">
           <div class="col-sm-10">
@@ -162,19 +129,19 @@
         </table>
         
          <!--PAGINATION-->
-    <nav aria-label="...">
-      <ul class="pagination">
-        <li class="page-item <%= (current == 1) ? 'disabled' : '' %>">
-          <a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current-1)) : '?page=' + Number(current-1) %>">Previous</a>
-        </li>
-        <% for(let i = (current == 1) ? current : current - 1; i <= pages && i <= current + 5; i++){ %>
-        <li class="page-item <%= (i == current) ? 'active' : '' %>"><a class="page-link" href="<%= (url.length > 1) ? url.replace('?page=' + current,'?page=' + i) : '?page=' + i %>"><%=i%></a></li>
-        <% } %>
-        <li class="page-item <%= (current == pages) ? 'disabled' : '' %> ">
-          <a class="page-link" href="<%=  (url.length > 1) ? url.replace('?page=' + current,'?page=' + Number(current + 1)) : '?page=' + Number(current + 1)%>">Next</a>
-        </li>
-      </ul>
-    </nav>
+         <br />
+         <nav aria-label="table">
+             <ul class="pagination">
+                 <li class="page-item <%= page == 1 ? 'disabled': ''; %>"><a class="page-link"
+                         href="/?page=<%= parseInt(page) - 1%>">Previous</a></li>
+                 <% for (let i = 1; i <= pages; i++) { %>
+                 <li class="page-item <%= page == i ? 'active': ''; %>"><a class="page-link" href="/?page=<%= i %>">
+                         <%= i %></a></li>
+                 <% }; %>
+                 <li class="page-item <%= page == pages ? 'disabled': ''; %>"><a class="page-link"
+                         href="/?page=<%= parseInt(page) + 1%>">Next</a></li>
+             </ul>
+         </nav>
         <div class="form-group row">
           <a href="add"
             ><button type="button" class="btn btn-primary">Add</button></a

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>BREAD (Browse, Read, Edit, Add, Delete)</h1>
+      <h2>Filters</h2>
+      <br />
+      <form action="" method="GET">
+        <!--       ID        -->
+        <div class="form-group row">
+          <label for="id" class="col-sm-2 col-form-label"><input type="checkbox" name="check_id"
+                      <%= query.check_id ? ' checked ' : '' %>> ID</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="id" placeholder="ID" name="id">
+          </div>
+      </div>
+        <!--       String        -->
+        <div class="form-group row">
+          <label for="string" class="col-sm-2 col-form-label"><input type="checkbox" name="check_string"
+                      <%= query.check_string ? ' checked ' : '' %>> String</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="string" placeholder="string" name="string">
+          </div>
+      </div>
+        <!--       Integer        -->
+        <div class="form-group row">
+          <label for="integer" class="col-sm-2 col-form-label"><input type="checkbox" name="check_integer"
+                      <%= query.check_integer ? ' checked ' : '' %>> Integer</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="integer" placeholder="integer" name="integer">
+          </div>
+      </div>  
+        <!--       Float        -->
+        <div class="form-group row">
+          <label for="float" class="col-sm-2 col-form-label"><input type="checkbox" name="check_float"
+                      <%= query.check_float ? ' checked ' : '' %>> Float</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="float" placeholder="float" name="float">
+          </div>
+      </div>
+        <!--       Date        -->
+        <div class="form-group row">
+          <label for="startDate" class="col-2 col-form-label"><input type="checkbox" name="check_date"
+                      <%= query.check_date ? ' checked ' : '' %>> Date</label>
+          <div class="col-2">
+              <input class="form-control" type="date" value="startDate" id="startDate" name="startDate">
+          </div>
+          <div class="col-8"></div>
+          <div class="col-2"></div>
+
+          <div class="col-2">
+              to
+          </div>
+          <div class="col-8"></div>
+          <div class="col-2"></div>
+
+          <div class="col-2">
+              <input class="form-control" type="date" value="endDate" id="endDate" name="endDate">
+          </div>
+          <div class="col-8"></div>
+      </div>
+
+        <!--       Boolean        -->
+        <div class="form-group row">
+          <label for="boolean" class="col-2 col-form-label"><input type="checkbox" name="check_boolean"
+                      <%= query.check_boolean ? ' checked' : '' %>> Boolean</label>
+          <div class="col-10">
+              <select id="boolean" class="form-control" name="boolean">
+                  <option disabled selected>Choose the boolean...</option>
+                  <option value="true" <%= query.check_boolean == "true" ? ' selected' : ''; %></option>true</option>
+                  <option value="false" <%= query.check_boolean == "false" ? ' selected' : ''; %></option>false</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" name="button" class="btn btn-primary">Search</a>
+          </div>
+      </div>
+    </form>
+
+      <!--VIEW DATA TABLE-->   
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">String</th>
+              <th scope="col">Integer</th>
+              <th scope="col">Float</th>
+              <th scope="col">Date</th>
+              <th scope="col">Boolean</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+                          <%# laporan = elemen, index = index  %>
+            <% let num = 1; %>
+          <% for(const laporan of model) { %>
+          <tr>
+            <td> <%= laporan.id %> </td>
+            <td> <%= laporan.string %> </td>
+            <td> <%= laporan.integer %> </td>
+            <td> <%= laporan.float %> </td>
+            <td> <%= laporan.date %> </td>
+            <td> <%= laporan.boolean %> </td>
+            <td>              
+    <a class="btn btn-success edit" href="edit/<%= laporan.id %>">Edit</a>                       
+    <a class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete this item?');" href="delete/<%= laporan.id %>">Delete</a>                       
+   </td>  
+            </tr>
+            
+          <% } %>
+          </tbody>
+        </table>
+        
+         <!--PAGINATION-->
+         <br />
+         <nav aria-label="table">
+             <ul class="pagination">
+                 <li class="page-item <%= page == 1 ? 'disabled': ''; %>"><a class="page-link"
+                         href="/?page=<%= parseInt(page) - 1%>">Previous</a></li>
+                 <% for (let i = 1; i <= pages; i++) { %>
+                 <li class="page-item <%= page == i ? 'active': ''; %>"><a class="page-link" href="/?page=<%= i %>">
+                         <%= i %></a></li>
+                 <% }; %>
+                 <li class="page-item <%= page == pages ? 'disabled': ''; %>"><a class="page-link"
+                         href="/?page=<%= parseInt(page) + 1%>">Next</a></li>
+             </ul>
+         </nav>
+        <div class="form-group row">
+          <a href="add"
+            ><button type="button" class="btn btn-primary">Add</button></a
+          >
+        </div>
+      
+    </div>
+  </body>
+</html>

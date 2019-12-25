@@ -19,7 +19,7 @@
       <h2>Filters</h2>
       <br />
       <form action="" method="GET">
-
+        <!--       ID        -->
         <div class="form-group row">
           <label for="id" class="col-sm-2 col-form-label">
           <div class="form-check">
@@ -50,26 +50,23 @@
       </div>
         <!--       Integer        -->
         <div class="form-group row">
-          <label for="integer" class="col-sm-2 col-form-label">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isInt" <%= (query.isInt) == 'on' ? "checked" : "" %> />
-              <label class="form-check-label" for="defaultCheck1">Integer</label>
+          <label for="inputEmail3" class="col-sm-2 col-form-label">
+          <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="isInt" <%= query.isInt == 'on' ? "checked" : "" %>/>
+              <label class="form-check-label" for="defaultCheck1">
+                Integer
+              </label>
             </div>
           </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" name="valueInt" placeholder="Integer" value="<%= query.valueInt %>">
-
-          </div>
-
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Integer" name="valueInt" value="<%= query.valueInt %>">
         </div>
-
-
-       
+      </div>    
         <!--       Float        -->
         <div class="form-group row">
-          <label for="String" class="col-sm-2 col-form-label">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">
           <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="isFloat" <%= (query.isFloat) == 'on' ? "checked" : "" %>/>
+              <input type="checkbox" step="0.01" class="form-check-input" name="isFloat" <%= query.isFloat == 'on' ? "checked" : "" %>/>
               <label class="form-check-label" for="defaultCheck1">
                 Float
               </label>

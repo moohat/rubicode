@@ -129,7 +129,7 @@ app.get('/', (req, res) => {
 
     //FILTER
 
-    let arrKondisi = [parseInt(req.query.valueID), req.query.valueString, parseInt(req.query.valueInt), parseFloat(req.query.valueFloat), req.query.valueBoolean];
+    let arrKondisi = [parseInt(req.query.valueID), req.query.valueString, parseInt(req.query.valueInt), req.query.valueFloat, req.query.valueBoolean];
     let arrIsChecked = [req.query.isID, req.query.isString, req.query.isInt, req.query.isFloat, req.query.isBoolean];
     let arrField = ["id = ?","instr(data_string,?)","data_integer = ?","data_float = ?","data_boolean = ?","data_date"];
 
@@ -199,7 +199,7 @@ const sql_create = `CREATE TABLE IF NOT EXISTS laporan (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     data_string VARCHAR(100) NOT NULL,
     data_integer INTEGER NOT NULL,
-    data_float FLOAT NOT NULL,
+    data_float REAL NOT NULL,
     data_date text,
     data_boolean BOOLEAN NOT NULL
   );`;

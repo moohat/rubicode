@@ -2,19 +2,24 @@ var express = require('express');
 var router = express.Router();
 
 const { Pool } = require("pg");
-const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "belajar",
-    password: "admin",
-    port: 5432
-});
-console.log("Successful connection to the database");
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     database: "belajar",
+//     password: "admin",
+//     port: 5432
+// });
+// console.log("Successful connection to the database");
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index');
 // });
+
+module.exports = function(pool){
+
+
+
 router.get('/', (req, res) => {
     let result = [];
     let filterData = false;
@@ -102,4 +107,5 @@ router.get('/delete/:id', (req, res) => {
 });
 
 
-module.exports = router;
+return router;
+}

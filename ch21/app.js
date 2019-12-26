@@ -4,9 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var addRouter = require('./routes/add');
-var editRouter = require('./routes/edit');
+const { Pool } = require("pg");
+const pool = new Pool({
+    user: "postgres",
+    host: "localhost",
+    database: "belajar",
+    password: "admin",
+    port: 5432
+});
+console.log("Successful connection to the database");
+
+var indexRouter = require('./routes/index')(pool);
+var addRouter = require('./routes/add')(pool);
+var editRouter = require('./routes/edit') (pool);
 var usersRouter = require('./routes/users');
 
 var app = express();

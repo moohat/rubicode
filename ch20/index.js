@@ -4,6 +4,7 @@ const sqlite3 = require("sqlite3").verbose(); //verbose() method allow to have m
 
 //creating the express server
 const app = express();
+// const app = express();
 
 //server configuration
 app.set('view engine', 'ejs');

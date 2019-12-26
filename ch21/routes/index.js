@@ -71,7 +71,7 @@ router.get('/', (req, res) => {
       // console.log('Total ' + total);
       const pages = Math.ceil(total / limit);
       // console.log('Pages ' + pages);
-      let sql = `SELECT * FROM laporan`;
+      let sql = `SELECT * FROM laporan `;
       if (filterData) {
           sql += ` WHERE ${result.join(' AND ')}`
       }
@@ -84,9 +84,25 @@ router.get('/', (req, res) => {
               pages,
               query: req.query,
               url
-          });
-      });
+            });
+        });
+        sql+=` ORDER BY id ASC`;
+      console.log(sql);
+      
   });
 });
+
+
+//GET /delete/5
+router.get('/delete/:id', (req, res) => {
+    let id = req.params.id;
+    const sqlDel = `DELETE FROM laporan WHERE id = $1`;
+    pool.query(sqlDel, [id], (err) => {
+        if (err) throw err;
+        console.log('Delete success')
+    })
+    res.redirect('/');
+});
+
 
 module.exports = router;

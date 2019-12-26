@@ -1,24 +1,16 @@
 var createError = require('http-errors');
 var express = require('express');
-// const { Pool } = require("pg");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var addRouter = require('./routes/add');
+var editRouter = require('./routes/edit');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
-// const pool = new Pool({
-//   user: "postgres",
-//   host: "localhost",
-//   database: "belajar",
-//   password: "admin",
-//   port: 5432
-// });
-// console.log("Successful connection to the database");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/add', addRouter);
+app.use('/edit', editRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

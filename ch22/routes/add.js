@@ -20,7 +20,7 @@ var router = express.Router();
       string: req.body.string,
       integer: parseInt(req.body.integer),
       float: parseFloat(req.body.float),
-      date: new Date(req.body.date),
+      date: new Date(req.body.date),// tipe data date
       boolean: req.body.boolean
     })
     console.log(req.body);
